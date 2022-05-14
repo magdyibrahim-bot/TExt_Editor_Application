@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1652561132 source:d:\magdy\programming 1\codeblocks\text_editor\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
