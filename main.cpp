@@ -96,15 +96,12 @@ void decrypt()
 //--------------------------------------------------------------
 void merge_file()
 {
-    char fileone[30], filetwo[30], filetarget[30], ch;
-    fstream fpsone, fpstwo, fptarget;
-    cout<<"Enter the Name of First Source File: \n";
-    cin >> fileone;
+    char filetwo[30], filetarget[30], ch;
+    fstream fpstwo, fptarget;
     cout<<"Enter the Name of Second Source File: \n";
     cin >> filetwo;
-    fpsone.open(fileone, fstream::in);
     fpstwo.open(filetwo, fstream::in);
-    if((!fpsone) || (!fpstwo))
+    if((!dataFile) || (!fpstwo))
     {
         cout<<"\nError Occurred (First Source File)!\n";
     }
@@ -117,7 +114,7 @@ void merge_file()
             cout<<"\nError Occurred (Target File)!\n";
         else
         {
-            while(fpsone>>noskipws>>ch)
+            while(dataFile>>noskipws>>ch)
                 fptarget<<ch;
             fptarget<<"\n";
             while(fpstwo>>noskipws>>ch)
@@ -125,7 +122,6 @@ void merge_file()
             cout<<"\nContent of Two File Merged Successfully into Third!\n";
         }
     }
-    fpsone.close();
     fpstwo.close();
     fptarget.close();
     cout<<endl;
@@ -133,16 +129,13 @@ void merge_file()
 //--------------------------------------------------------------
 void count_words()
 {
-   char filename[30], ch, str[1000];
+   char ch, str[1000];
    int tot=0, i=0, tot_word=0;
-   ifstream fp;
-   fp.open(filename, ifstream::in);
-   while(fp>>noskipws>>ch)
+   while(dataFile>>noskipws>>ch)
    {
       str[tot] = ch;
       tot++;
    }
-   fp.close();
    str[tot]='\0';
    while(str[i]!='\0')
    {
@@ -167,35 +160,25 @@ void count_words()
 //--------------------------------------------------------------
 void count_characters()
 {
-   char filename[30], ch;
+   char ch;
    int tot=0;
-   ifstream fp;
-   fp.open(filename, ifstream::in);
-   if(!fp)
-   {
-      cout<<endl<<"File doesn't exist or Access denied!\n";
-   }
-   while(fp>>noskipws>>ch)
+   while(dataFile>>noskipws>>ch)
     {
         tot++;
     }
-   fp.close();
    cout<<endl<<"Total Characters = "<<tot<<"\n";
    cout<<endl;
 }
 //--------------------------------------------------------------
 void count_lines()
 {
-   char filename[30], ch, str[1000];
+   char ch, str[1000];
    int tot=0, i=0, tot_lines=0;
-   ifstream fp;
-   fp.open(filename, ifstream::in);
-   while(fp>>noskipws>>ch)
+   while(dataFile>>noskipws>>ch)
    {
       str[tot] = ch;
       tot++;
    }
-   fp.close();
    str[tot]='\0';
    while(str[i]!='\0')
    {
