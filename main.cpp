@@ -42,9 +42,10 @@ void display (fstream& file, char name[100])
         }else{
             cout<<"open good\n";
         }
+    cout << "the Text is : \n" ;
     while(!file.eof()){
         file.getline(token,100,'\n');
-        cout<<"the Txet is = \n"<<token<<endl;
+        cout<<token<<endl;
     }
     file.close();
 }
@@ -143,6 +144,7 @@ void merge_file(fstream& file, char name[100])
     fstream fpstwo, fptarget;
     cout<<"Enter the Name of Second Source File: \n";
     cin >> filetwo;
+    strcat_s(filetwo , ".txt");
     fpstwo.open(filetwo, fstream::in);
     if((!file) || (!fpstwo))
     {
@@ -152,6 +154,7 @@ void merge_file(fstream& file, char name[100])
     {
         cout<<"\nEnter the Name of Target File: \n";
         cin >> filetarget;
+        strcat_s(filetarget , ".txt");
         fptarget.open(filetarget, fstream::out);
         if(!fptarget)
             cout<<"\nError Occurred (Target File)!\n";
@@ -176,9 +179,10 @@ void count_words(fstream& file, char name[100])
     int count = 0;
     while(!file.eof()){
         file >> word;
-        count++;
+        count ++ ;
     }
-    cout<<"Total words =\n"<<count << endl;
+    cout<<"Total words = "<<count << endl;
+    file.close();
 }
 //--------------------------------------------------------------
 void count_characters(fstream& file, char name[100])
@@ -189,7 +193,8 @@ void count_characters(fstream& file, char name[100])
         file >> ch;
         count ++ ;
     }
-    cout<<"Total characters =\n"<< count << endl;
+    cout<<"Total characters = "<< count << endl;
+    file.close();
 }
 //--------------------------------------------------------------
 void count_lines(fstream& file, char name[100])
@@ -211,6 +216,7 @@ void count_lines(fstream& file, char name[100])
     tot_lines++;
     cout<<endl<<"Total Number of Lines = "<<tot_lines<<"\n";
     cout<<endl;
+    file.close();
 }
 //--------------------------------------------------------------
 void search_word(fstream& file, char name[100])
@@ -250,6 +256,7 @@ void search_word(fstream& file, char name[100])
             cout << endl << input_file << " not found" << endl; //file not available
         }
     }
+    file.close();
 }
 //--------------------------------------------------------------
 void number_of_word(fstream& file, char name[100])
@@ -298,6 +305,51 @@ void first_caps(fstream& file, char name[100])
 //--------------------------------------------------------------
 void save(fstream& file, char name[100])
 {
+    char new_file[100] , ch ;
+    fstream fptarget;
+
+
+    cout <<
+            "1 - save file content again in the same file \n" <<
+            "2 - save file content in new file \n";
+
+    cout << "enter an option: \n";
+    int option;
+
+    cin >> option;
+    // handle any non integer inputs
+    while (cin.fail())
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "----Wrong input! enter numbers only. try again----\n";
+        cin >> option;
+    }
+
+    if (option == 1)
+    {
+
+    }
+    else if (option == 2)
+    {
+        cout<< "Enter name of the new file : ";
+        cin >> new_file;
+        strcat_s(new_file, ".txt");
+        fptarget.open(new_file , fstream::out );
+         if(!fptarget)
+            cout<<"\nError Occurred (Target File)!\n";
+        else
+        {
+
+        while(file>>noskipws>>ch)
+                fptarget<<ch;
+                cout<<"new file has been created" ;
+
+        }
+
+    }
+    fptarget.close();
+    file.close();
 
 }
 
