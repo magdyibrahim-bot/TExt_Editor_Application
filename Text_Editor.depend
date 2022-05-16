@@ -7,3 +7,28 @@
 	<stdio.h>
 	<stdlib.h>
 
+1652674836 source:c:\users\asus\desktop\text editor\text_editor_application\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"Header_p.h"
+	<conio.h>
+	<cctype>
+
+1652673324 c:\users\asus\desktop\text editor\text_editor_application\header_p.h
+	<fstream>
+	<iostream>
+	<string>
+
+1652673103 source:c:\users\asus\desktop\text editor\text_editor_application\source.o.cpp
+	<iostream>
+	<string>
+	<iomanip>
+	<array>
+	<regex>
+	<fstream>
+	"Header_p.h"
+
