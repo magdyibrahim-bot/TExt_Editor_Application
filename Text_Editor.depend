@@ -32,3 +32,30 @@
 	<fstream>
 	"Header_p.h"
 
+1652692880 source:c:\users\magib\downloads\my-github\text_editor_application\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"Header_p.h"
+	<conio.h>
+	<cctype>
+
+1652693146 c:\users\magib\downloads\my-github\text_editor_application\header_p.h
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+
+1652693147 source:c:\users\magib\downloads\my-github\text_editor_application\source.o.cpp
+	<iostream>
+	<string>
+	<iomanip>
+	<array>
+	<regex>
+	<fstream>
+	"Header_p.h"
+	<vector>
+

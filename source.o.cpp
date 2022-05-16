@@ -5,6 +5,7 @@
 #include <regex>
 #include <fstream>
 #include "Header_p.h"
+#include<vector>
 using namespace std;
 
 
