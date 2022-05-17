@@ -7,6 +7,7 @@
 #include "Header_p.h"
 #include <conio.h>
 #include <cctype>
+#include <sstream>
 
 
 using namespace std;
@@ -347,6 +348,38 @@ void lower_case(fstream& file, char name[100])
 //--------------------------------------------------------------
 void first_caps(fstream& file, char name[100])
 {
+   ifstream inf;
+   ofstream ouf;
+   stringstream str_stream;
+   string str;
+   //char filename[30];
+   int i=0, temp=0, asc_val;
+
+
+   inf.open(name);
+   str_stream<<inf.rdbuf();
+   inf.close();
+   str = str_stream.str();
+   while(str[i])
+   {
+      if(temp==0)
+      {
+         asc_val = str[i];
+         if(asc_val>=97 && asc_val<=122)
+         {
+            asc_val = asc_val-32;
+            str[i] = asc_val;
+         }
+         temp = 1;
+      }
+      if(isspace(str[i]))
+         temp = 0;
+      i++;
+   }
+   ouf.open(name);
+   ouf<<str;
+   cout<<"\nAll words capitalized Successfully!";
+   cout<<endl;
 
 }
 //--------------------------------------------------------------

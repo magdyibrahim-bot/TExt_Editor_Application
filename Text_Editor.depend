@@ -86,3 +86,30 @@
 	"Header_p.h"
 	<vector>
 
+1652817392 source:c:\users\magib\downloads\text_editor_application\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"Header_p.h"
+	<conio.h>
+	<cctype>
+
+1652817392 c:\users\magib\downloads\text_editor_application\header_p.h
+	<fstream>
+	<iostream>
+	<string>
+	<vector>
+
+1652817392 source:c:\users\magib\downloads\text_editor_application\source.o.cpp
+	<iostream>
+	<string>
+	<iomanip>
+	<array>
+	<regex>
+	<fstream>
+	"Header_p.h"
+	<vector>
+
