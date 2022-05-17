@@ -59,7 +59,7 @@
 	"Header_p.h"
 	<vector>
 
-1652729714 source:c:\users\asus\desktop\repo\text_editor_application\main.cpp
+1652815875 source:c:\users\asus\desktop\repo\text_editor_application\main.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -69,7 +69,6 @@
 	"Header_p.h"
 	<conio.h>
 	<cctype>
-	<vector>
 
 1652716692 c:\users\asus\desktop\repo\text_editor_application\header_p.h
 	<fstream>

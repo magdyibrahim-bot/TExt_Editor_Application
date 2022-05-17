@@ -7,29 +7,54 @@
 #include "Header_p.h"
 #include <conio.h>
 #include <cctype>
-#include <vector>
+
 
 using namespace std;
 
 void add (fstream& file, char name[100])
 {
-    char token[101];
-    file_file:
-        if (file.fail())
+   fstream stud , fptarget;
+   stud.open("temp.txt" , ios::out);
+   string words ;
+   char filename[30] = {"new"} , ch;
+   strcat_s(filename , ".txt");
+    fptarget.open(filename, fstream::out);
+
+   cout<<"enter what you want:";
+   getline(cin >> ws , words);
+
+    stud << words ;
+    stud.close();
+    stud.open("temp.txt" , fstream::in);
+
+    if(!fptarget)
+            cout<<"\nError Occurred (Target File)!\n";
+        else
         {
-            cerr<<"wrong file enter an existing one\n";
-            goto file_file;
-        }
-        else{
-            cout<<"open good\n";
-            string item;
-            cout<<"enter what u want: ";
-            while(item==""){
-                getline(cin,item);
-                file<<item;
+            while(file>>noskipws>>ch){
+                fptarget<<ch;
+
             }
+            fptarget<<" " ;
+            while(stud>>noskipws>>ch)
+                fptarget<<ch;
+
         }
-    file.close();
+
+
+
+    stud.close();
+    fptarget.close();
+   file.close();
+
+   remove(name);
+   remove("temp.txt");
+   rename("new.txt" , name);
+
+
+
+
+
 }
 //--------------------------------------------------------------
 void display (fstream& file, char name[100])
@@ -52,18 +77,27 @@ void display (fstream& file, char name[100])
 //--------------------------------------------------------------
 void empty_the_file(fstream& file, char name[100])
 {
-    file_file:
-        string file1;
-        if (file.fail()){
-            cerr<<"wrong file enter an existing one\n";
-            goto file_file;
-        }else{
-            file.close();
-            cout<<"open good\n";
-            file.open(file1, std::ofstream::out | std::ofstream::trunc);
-        }
 
+    fstream temp ;
+    temp.open("temp.txt" , ios::out);
+
+    string word;
+
+    while (!file.eof()){
+        //file >> word;
+        file >> word ;
+        word = "";
+        temp << word ;
+    }
+
+
+    temp.close();
     file.close();
+    remove(name);
+    rename("temp.txt" , name);
+
+
+
 }
 //--------------------------------------------------------------
 void encrypt (fstream& file, char name[100])
@@ -261,7 +295,20 @@ void search_word(fstream& file, char name[100])
 //--------------------------------------------------------------
 void number_of_word(fstream& file, char name[100])
 {
+    string item , word ;
+    int count = 0;
 
+    cout << "enter the word :";
+    cin >> word;
+    while (!file.eof()){
+        file >> item;
+        if (item == word)
+            count++;
+
+
+    }
+    cout<< "number of times (" << word <<  ") exist= " << count ;
+    file.close();
 }
 //--------------------------------------------------------------
 void upper_case(fstream& file, char name[100])
@@ -304,9 +351,13 @@ void first_caps(fstream& file, char name[100])
 }
 //--------------------------------------------------------------
 void save(fstream& file, char name[100])
+
 {
+
+
     char new_file[100] , ch ;
     fstream fptarget;
+    int count =0 ;
 
 
     cout <<
@@ -329,7 +380,32 @@ void save(fstream& file, char name[100])
     if (option == 1)
     {
 
+    fstream temp ;
+    temp.open("temp.txt" , ios::out);
+
+    string word;
+
+    while (!file.eof()){
+        //file >> word;
+        file >> word ;
+
+        temp << word ;
     }
+
+
+
+
+    temp.close();
+    file.close();
+   // remove(name);
+    //rename("temp.txt" , name)
+
+
+    }
+
+
+
+
     else if (option == 2)
     {
         cout<< "Enter name of the new file : ";
